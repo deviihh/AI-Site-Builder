@@ -63,8 +63,8 @@ Describe a website in plain words and get a finished, responsive page. Preview i
 You need Node.js 20 or newer, a PostgreSQL database (Neon works), an OpenRouter API key and an Unsplash access key.
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/ai-site-builder.git
-cd ai-site-builder/server
+git clone https://github.com/deviihh/AI-Site-Builder.git
+cd AI-Site-Builder/server
 npm install
 # copy .env.example to .env and fill in the values
 npx prisma migrate deploy
@@ -74,7 +74,7 @@ npm run dev
 In a second terminal:
 
 ```bash
-cd ai-site-builder/client
+cd AI-Site-Builder/client
 npm install
 # copy .env.example to .env
 npm run dev
