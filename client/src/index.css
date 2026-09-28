@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Figtree:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Figtree", system-ui, sans-serif;
+
+  /* Olive Garden Feast palette */
+  --color-olive: #606c38;
+  --color-forest: #283618;
+  --color-cream: #fefae0;
+  --color-sand: #dda15e;
+  --color-clay: #bc6c25;
+
+  /* App colors, matching the example website */
+  --color-bp: #fefae0;
+  --color-bp-deep: #fffdf2;
+  --color-bp-raise: #f3edcb;
+  --color-chalk: #283618;
+  --color-chalk-dim: #5c6446;
+  --color-line: #28361826;
+  --color-signal: #606c38;
+  --color-signal-hover: #283618;
+  --color-tint: #f1e3bd;
+  --color-mint: #4b6a1f;
+  --color-alert: #a83a22;
+
+  --radius-xs: 0.625rem;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bp);
+    color: var(--color-chalk);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-sand);
+    color: var(--color-forest);
+  }
+}
+
+@layer components {
+  .btn-signal {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-signal px-5 py-2.5 text-sm font-semibold text-bp transition-colors hover:bg-signal-hover disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-line {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-medium text-chalk transition-colors hover:bg-chalk/5 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-line bg-bp-deep px-4 py-2.5 text-chalk placeholder:text-chalk-dim/70 disabled:opacity-50;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-clay);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

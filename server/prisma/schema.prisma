@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String           @id @default(cuid())
+  name          String
+  email         String           @unique
+  password      String
+  credits       Int              @default(20)
+  totalCreation Int              @default(0)
+  createdAt     DateTime         @default(now())
+  projects      WebsiteProject[]
+}
+
+model WebsiteProject {
+  id                  String         @id @default(cuid())
+  name                String
+  initialPrompt       String
+  currentCode         String?
+  currentVersionIndex String         @default("")
+  isPublished         Boolean        @default(false)
+  userId              String
+  user                User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  conversation        Conversation[]
+  versions            Version[]
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+}
+
+model Conversation {
+  id        String         @id @default(cuid())
+  role      String
+  content   String
+  projectId String
+  project   WebsiteProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  timestamp DateTime       @default(now())
+}
+
+model Version {
+  id          String         @id @default(cuid())
+  code        String
+  description String?
+  projectId   String
+  project     WebsiteProject @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  timestamp   DateTime       @default(now())
+}
