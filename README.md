@@ -91,3 +91,4 @@ Open http://localhost:5173.
 - The JWT is stored in localStorage, there is no login rate limiting, and there are no automated tests.
 - The free Unsplash tier is rate-limited, so a placeholder image is used when a search fails.
 - On free hosting, the first request after idle time can take about a minute.
+- This project intentionally uses free-tier AI models to keep hosting costs at zero. This means generation can occasionally fail or take longer during high load.    The app handles this with retries and automatic credit refunds rather than a stable guarantee.
