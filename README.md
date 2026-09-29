@@ -2,7 +2,7 @@
 
 Describe a website in plain words and get a finished, responsive page. Preview it on phone, tablet and desktop, ask for changes in a chat, roll back to any earlier version, download the HTML, or publish it to a public gallery.
 
-**Live demo:** _add your link here after deployment_
+**Live demo:** https://ai-site-builder-eta-one.vercel.app
 
 ## Features
 
